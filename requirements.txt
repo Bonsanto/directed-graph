@@ -1,0 +1,3 @@
+pandas==0.20.2
+networkx==1.11
+setuptools==38.2.5
