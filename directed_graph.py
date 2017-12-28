@@ -1,6 +1,5 @@
 import networkx as nx
 import pandas as pd
-import geohash as g
 import functools
 import queue
 
@@ -34,28 +33,6 @@ class DirectedGraph:
                 self.add_edge(features[0], features[1],
                               {weight: features[index + 2] for index, weight in enumerate(weights)})
 
-            if fill_missing_edges:
-                self.__fill_missing_edges()
-
-    def __fill_missing_edges(self):
-        nodes = self.source_nodes.union(self.target_nodes)
-        missing_source_nodes = nodes.difference(self.source_nodes)
-        missing_target_nodes = nodes.difference(self.target_nodes)
-
-        # todo: use the mean of neighbor edges as time and calculate haversine distance.
-        if len(missing_source_nodes) > 0:
-            for missing_node in missing_source_nodes:
-                missing_node_neighbors = g.neighbors(missing_node)
-
-                for neighbor in missing_node_neighbors:
-                    self.add_edge(missing_node, neighbor, **{weight: 0 for weight in self.weights})
-
-        if len(missing_target_nodes) > 0:
-            for missing_node in missing_target_nodes:
-                missing_node_neighbors = g.neighbors(missing_node)
-
-                for neighbor in missing_node_neighbors:
-                    self.add_edge(neighbor, missing_node, **{weight: 0 for weight in self.weights})
 
     def is_empty(self):
         """
