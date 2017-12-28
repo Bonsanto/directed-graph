@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 # Get version without importing, which avoids dependency issues
 def get_version():
-    with open('src/version.py') as version_file:
+    with open('directedgraph/version.py') as version_file:
         return re.search(r"""__version__\s+=\s+(['"])(?P<version>.+?)\1""",
                          version_file.read()).group('version')
 
@@ -35,5 +35,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    keywords=[''],
+    keywords=['graph', 'subgraph', 'subset', 'disjointsubset', 'directed-graph'],
 )
