@@ -1,2 +1,2 @@
 # directed-graph
-This is a wrapper over networkx's Digraph.
+This library uses networkx's to its functionality.
