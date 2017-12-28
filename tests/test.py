@@ -1,5 +1,6 @@
 import unittest
-import directed_graph
+
+from src import directed_graph
 
 
 class TestStringMethods(unittest.TestCase):
